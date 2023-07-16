@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'
     get 'customers/reports' => 'customers#index'
-    get 'customers/check' => 'customers#che'
+    get 'customers/check' => 'customers#check'
     get 'customers/withdraw' => 'customers#withdraw'
     patch 'customers/withdraw' => 'customers#withdraw'
 
