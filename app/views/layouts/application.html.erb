@@ -13,6 +13,64 @@
   </head>
 
   <body>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid" >
+          <h1 class="border border-dark px-5"><%= link_to "LOGO", root_path, class: 'nav-link text-dark' %></h1>
+          <% if customer_signed_in? %>
+          <div class="ml-4">
+            <h6>ようこそ、さん！</h6>
+          </div>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "投稿一覧", admin_root_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "通知", admin_notifications_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            <% elsif customer_signed_in? %>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "マイページ", customers_my_page_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "投稿一覧", new_report_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "通知", notifications_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            <% else %>
+              <li class="nav-item border m-3 rounded">
+                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item border m-3 rounded ">
+                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %>
+              </li>
+            <% end %>
+            </ul>
+            <div class="ml-auto">
+              <%= text_field_tag :search %>
+              <%= submit_tag 'Search', :name => nil %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
