@@ -61,6 +61,9 @@
               <li class="nav-item border m-3 rounded ">
                 <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %>
               </li>
+              <li class="nav-item border m-3 rounded ">
+                <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: 'nav-link text-dark' %>
+              </li>
             <% end %>
             </ul>
             <div class="ml-auto">

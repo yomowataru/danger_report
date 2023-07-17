@@ -9,8 +9,13 @@ class Public::CustomersController < ApplicationController
 
   def update
     customer = current_customer
-    customer.update(customer_params)
-    redirect_to customers_my_page_path
+    if customer.email == 'guest@example.com'
+      reset_session
+      redirect_to root_path, alert: "ゲストユーザーは編集できません"
+    else
+      customer.update(customer_params)
+      redirect_to customers_my_page_path
+    end
   end
 
   def index
@@ -21,11 +26,16 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @customer.update(is_deleted: true)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    if @customer.email == 'guest@example.com'
+      reset_session
+      redirect_to root_path, alert: "ゲストユーザーは削除できません"
+    else
+      # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+      @customer.update(is_deleted: true)
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to root_path
+    end
   end
 
   private

@@ -49,9 +49,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
   end
-  
+
   devise_scope :customer do
-    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
