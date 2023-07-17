@@ -19,7 +19,7 @@
           <h1 class="border border-dark px-5"><%= link_to "LOGO", root_path, class: 'nav-link text-dark' %></h1>
           <% if customer_signed_in? %>
           <div class="ml-4">
-            <h6>ようこそ、さん！</h6>
+            <h6>ようこそ、<%= current_customer.name %>さん！</h6>
           </div>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"

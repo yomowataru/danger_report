@@ -1,0 +1,32 @@
+<div class="container" >
+  <div class="row">
+    <div>
+      <h4>マイページ</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <table class="table table-borderless">
+        <tr>
+          <th>名前</th>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 text-left">
+      <%= link_to "会員情報編集", customers_information_edit_path %>
+    </div>
+    <div class="col-lg-3 text-left">
+      <%= link_to "投稿履歴一覧", customers_reports_path %>
+    </div>
+    <div class="col-lg-3 text-left">
+      <%= link_to "退会する", customers_check_path %>
+    </div>
+  </div>
+</div>
