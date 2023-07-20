@@ -10,3 +10,10 @@ Admin.create!(
   email: 'yomoyomo@com',
   password: 'yomoyomo'
 )
+
+Tag.create([
+  { name: '道路' },
+  { name: '水路' },
+  { name: '上下水道' },
+  { name: 'その他' }
+])

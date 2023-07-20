@@ -1,33 +1,64 @@
-<h1>Public::Reports#new</h1>
-<p>Find me in app/views/public/reports/new.html.erb</p>
+<div class="container mt-3">
+  <h1>新規登録</h1>
+
+  <%= form_with model: @report, url: reports_path, method: :post do |f| %>
+  <table class="table table-borderless">
+    <tr>
+      <th><%= f.label :image, "写真" %></th>
+      <td><%= f.file_field :image, accept: "image/*" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction, "内容説明" %></th>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+  </table>
+  <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row m-2 pt-4">
+    <div class="col-lg-2 text-left"></div>
+    <div class="actions col-lg text-left">
+      <%= f.submit '新規登録', class: 'btn btn-success' %>
+    </div>
+  </div>
+  <% end %>
 
 
-<h2>gmap</h2>
-<div id='map'></div>
+  <h2>gmap</h2>
+  <div id='map'></div>
 
-<style>
-#map {
-  height: 600px;
-  width: 600px;
-}
-</style>
+  <style>
+  #map {
+    height: 600px;
+    width: 600px;
+  }
+  </style>
 
-<script>
-let map
+  <script>
+  let map
 
-function initMap(){
-  geocoder = new google.maps.Geocoder()
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.7828, lng:-73.9653},
-    zoom: 12,
-  });
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.75023773521393, lng:140.46825315394926},
+      zoom: 12,
+    });
 
-  marker = new google.maps.Marker({
-    position:  {lat: 40.7828, lng:-73.9653},
-    map: map
-  });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+    marker = new google.maps.Marker({
+      position:  {lat: 37.75023773521393, lng:140.46825315394926},
+      map: map
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 
+</div>
