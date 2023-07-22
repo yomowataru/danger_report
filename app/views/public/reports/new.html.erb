@@ -12,7 +12,21 @@
       <td><%= f.text_area :introduction %></td>
     </tr>
   </table>
+<<<<<<< HEAD
   
+=======
+
+  <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+>>>>>>> origin/main
 
   <div class="row m-2 pt-4">
     <div class="col-lg-2 text-left"></div>
