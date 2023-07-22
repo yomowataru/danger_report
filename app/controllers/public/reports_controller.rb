@@ -23,6 +23,6 @@ class Public::ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:latitude, :longitude, :introduction, :image)
+    params.require(:report).permit(:lat, :lng, :introduction, :image)
   end
 end

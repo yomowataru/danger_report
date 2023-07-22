@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
-  # geocoded_by :address_city
-  # after_validation :geocode, if: :address_city_changed?
+  # geocoded_by :address
+  # after_validation :geocode, if: :address_changed?
 
   has_one_attached :image
 

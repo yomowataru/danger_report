@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2023_07_20_133236) do
   end
 
   create_table "reports", force: :cascade do |t|
+    t.float "lat", null: false
+    t.float "lng", null: false
     t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
