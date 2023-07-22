@@ -10,9 +10,11 @@ class Public::ReportsController < ApplicationController
   end
 
   def index
+    @reports = Report.all
   end
 
   def show
+    @report = Report.find(params[:id])
   end
 
   def destroy
@@ -21,6 +23,6 @@ class Public::ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:customer_id, :tag_id, :adress, :latitude, :longitude, :introduction, tag_ids: [])
+    params.require(:report).permit(:latitude, :longitude, :introduction, :image)
   end
 end

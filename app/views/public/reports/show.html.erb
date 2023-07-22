@@ -1,2 +1,15 @@
-<h1>Public::Reports#show</h1>
-<p>Find me in app/views/public/reports/show.html.erb</p>
+<div class="container mt-3">
+  <div class="row">
+    <h1>投稿履歴詳細</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 text-left m-3">
+      <%= image_tag @report.get_image, size: "200x200" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= @report.introduction %>
+  </div>
+</div>
