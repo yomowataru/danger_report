@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :tags, only: [:new, :create, :edit, :update]
+  end
+
+  namespace :admin do
     resources :reports, only: [:show, :destroy]
     # get 'reports/show'
   end
