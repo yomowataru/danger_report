@@ -19,7 +19,18 @@
       <th><%= f.label :lng,"経度" %></th>
       <td><%= f.text_field :lng,:value =>"経度", id: :lng %></td>
     </tr>
-  </table
+  </table>
+  
+  <div class="check_box">
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+     　 <%= tag.label do %>
+      　  <%= tag.check_box %>
+      　  <%= tag.text %>
+      　<% end %>
+      </div>
+    <% end %>
+  </div>
 
 
   <div class="row m-2 pt-4">
