@@ -27,6 +27,7 @@
         <tr>
           <td><%= tags.id %></td>
           <td><%= tags.name %></td>
+          <td><%= link_to "編集する", edit_admin_tag_path(tags.id), class: 'btn btn-success' %></td>
         </tr>
       </table>
     <% end %>

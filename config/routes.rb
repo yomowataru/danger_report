@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tags, only: [:new, :create, :edit, :update]
+    resources :tags, only: [:new, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do
