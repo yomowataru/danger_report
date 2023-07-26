@@ -58,8 +58,20 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
   </div>
-  <div class="row">
-    <div class="col-lg-10 text-left">
+
+  <%= form_tag reports_path, method: :get, class: 'boards__searchForm' do %>
+    <div class="row">
+      <% @tags.each do |tag| %>
+        <div class="tag-box m-3">
+          <%= link_to tag.name, reports_path(name: tag.id) %>
+        </div>
+      <% end %>
+        <div class="tag-box m-3">
+          <%= link_to "全ての投稿", reports_path %>
+        </div>
+    </div>
+
+    <div class="row">
       <% @reports.each do |reports| %>
         <table class="table table-borderless">
           <tr>
@@ -72,5 +84,5 @@
         </table>
       <% end %>
     </div>
-  </div>
+  <% end %>
 </div>

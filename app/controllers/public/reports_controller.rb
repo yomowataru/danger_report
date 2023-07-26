@@ -10,7 +10,10 @@ class Public::ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    @tags = Tag.all
+    @reports = params[:name].present? ? Tag.find(params[:name]).reports : Report.all
+    # @reports = Report.all
+
   end
 
   def show
