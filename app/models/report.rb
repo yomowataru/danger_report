@@ -12,7 +12,8 @@ class Report < ApplicationRecord
     image
   end
 
-  
+
   has_many :report_tags, dependent: :destroy
   has_many :tags, through: :report_tags, dependent: :destroy
+  belongs_to :customer
 end
