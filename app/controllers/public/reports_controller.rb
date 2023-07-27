@@ -5,6 +5,8 @@ class Public::ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    # カスタマーIDを保存する場合、↓の記述がないとエラー(保存されない)！！
+    @report.customer_id = current_customer.id
     @report.save
     redirect_to  report_path(@report.id)
   end
@@ -26,6 +28,6 @@ class Public::ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:lat, :lng, :introduction, :image, tag_ids: [])
+    params.require(:report).permit(:customer_id, :lat, :lng, :introduction, :image, tag_ids: [])
   end
 end

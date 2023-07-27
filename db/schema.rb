@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2023_07_20_133236) do
   end
 
   create_table "reports", force: :cascade do |t|
+    t.integer "customer_id"
     t.float "lat", null: false
     t.float "lng", null: false
     t.text "introduction", null: false

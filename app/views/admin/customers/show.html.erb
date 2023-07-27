@@ -1,9 +1,9 @@
 <div class="container mt-3">
-  
+
   <div class="row">
     <h4><%= @customer.name %>さんの会員詳細</h4>
   </div>
-  
+
   <div class="row">
     <div class="col-lg-6 text-left">
       <table class="table table-borderless">
@@ -30,10 +30,10 @@
           </td>
         </tr>
         <tr>
-          <!--< % @reports.each do |reports| %>-->
-            <!--<td>< %= reports.id %></td>-->
-            <!--<td>< %= link_to reports.introduction, report_path(reports.id) %></td>-->
-          <!--< % end %>-->
+          <% @reports.each do |reports| %>
+            <td><%= reports.id %></td>
+            <td><%= link_to reports.introduction, report_path(reports.id) %></td>
+          <% end %>
         </tr>
         <tr>
           <td></td>
@@ -42,5 +42,5 @@
       </table>
     </div>
   </div>
-  
+
 </div>
