@@ -1,2 +1,41 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container mt-3">
+
+  <div class="row">
+    <h4><%= @customer.name %>さんの会員情報編集</h4>
+  </div>
+
+  <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
+
+  <div class="row">
+    <div class="col-lg-7 text-left">
+      <table class="table table-borderless">
+        <tr>
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <th><label for="inputName">氏名</label></th>
+          <td><%= f.text_field :name, autofocus: true, id:"inputName" %></td>
+        </tr>
+        <tr>
+          <th><label for="inputEmail">メールアドレス</label></th>
+          <td><%= f.text_field :email, autofocus: true, id:"inputEmail" %></td>
+        </tr>
+        <tr>
+          <th><label for="status">会員ステータス</label></th>
+          <td>
+            <%= f.radio_button :status, 0, checked: "checked" %>
+            <%= f.label :status, "有効" %>
+            <%= f.radio_button :status, 1 %>
+            <%= f.label :status, "退会" %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "変更を保存", class: 'btn btn-success' %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <% end %>
+</div>

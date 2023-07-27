@@ -13,6 +13,18 @@ class Admin::CustomersController < ApplicationController
   end
   
   def update
+    customer =  Customer.find(params[:id])
+    customer.update(customer_params)
+
+    if params[:customer][:status] == "1"
+      customer.update(is_deleted: true)
+      flash[:notice] = "退会処理を実行いたしました"
+
+    elsif params[:customer][:status] == "0"
+      customer.update(is_deleted: false)
+    end
+
+    redirect_to admin_customer_path(customer.id)
   end
   
   def customer_params
