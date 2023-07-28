@@ -76,6 +76,7 @@
         <table class="table table-borderless">
           <tr>
             <td><%= reports.id %></td>
+            <td><%= l reports.created_at %></td>
             <td><%= link_to reports.introduction, report_path(reports.id) %></td>
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
