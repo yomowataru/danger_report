@@ -53,8 +53,8 @@
     <%= @report.introduction %>
   </div>
 
-  <div class="row">
-    <p>コメントする</p>
+  <div>
+    <div class="row">コメントする</div>
     <%= form_with(model:[@report, @comment], method: :post) do |f| %>
       <%= f.text_area :comment %>
       <%= f.hidden_field :report_id, value: @report.id %>
@@ -62,10 +62,16 @@
     <% end %>
   </div>
 
-  <div class="row">
-    <p>コメント一覧</p>
+  <div>
+    <div class="row">コメント一覧</div>
+    <div class="row">
     <% @comments.each do |comment| %>
-      <%= comment.comment %>
+      <table class="table table-borderless">
+        <td><%= l comment.created_at %></td>
+        <td><%= comment.comment %></td>
+        <td><%= comment.customer.name %></td>
+      </table>
     <% end %>
+    </div>
   </div>
 </div>

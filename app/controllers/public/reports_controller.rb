@@ -21,11 +21,12 @@ class Public::ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @comments = @report.comments  #投稿詳細に関連付けてあるコメントを全取得
-    @comment = Comment.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
-
+    @comment = current_customer.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+                # currentと書かないと保存できない
   end
 
   def destroy
+    
   end
 
   private
