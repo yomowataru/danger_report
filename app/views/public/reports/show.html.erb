@@ -52,4 +52,20 @@
     <%= l @report.created_at %>
     <%= @report.introduction %>
   </div>
+
+  <div class="row">
+    <p>コメントする</p>
+    <%= form_with(model:[@report, @comment], method: :post) do |f| %>
+      <%= f.text_area :comment %>
+      <%= f.hidden_field :report_id, value: @report.id %>
+      <%= f.submit 'コメントする' %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <p>コメント一覧</p>
+    <% @comments.each do |comment| %>
+      <%= comment.comment %>
+    <% end %>
+  </div>
 </div>

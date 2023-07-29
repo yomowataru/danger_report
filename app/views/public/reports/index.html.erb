@@ -72,8 +72,17 @@
     </div>
 
     <div class="row">
-      <% @reports.each do |reports| %>
-        <table class="table table-borderless">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>投稿ID</th>
+            <th>投稿日時</th>
+            <th>内容</th>
+            <th>タグ</th>
+          </tr>
+        </thead>
+        <% @reports.each do |reports| %>
+        <tbody>
           <tr>
             <td><%= reports.id %></td>
             <td><%= l reports.created_at %></td>
@@ -82,8 +91,9 @@
               <td><%= tag.name %></td>
             <% end %>
           </tr>
-        </table>
-      <% end %>
+        </tbody>
+        <% end %>
+      </table>
     </div>
   <% end %>
 </div>

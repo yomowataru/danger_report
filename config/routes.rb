@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :reports, only: [:new, :create, :index, :show, :destroy]
+    resources :reports, only: [:new, :create, :index, :show, :destroy] do
+      resources :comments, only: [:create]  #commentsコントローラへのルーティング
+    end
     # get 'reports/new'
     # get 'reports/index'
     # get 'reports/show'
