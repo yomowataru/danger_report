@@ -5,6 +5,21 @@ class Admin::ReportsController < ApplicationController
     # @comment = Comment.new
   end
 
+  def update
+    report = Report.find(params[:id])
+    report.update(report_params)
+
+    if params[:report][:status] == "1"
+      report.update(is_finished: true)
+      flash[:notice] = "対応済みです"
+
+    elsif params[:report][:status] == "0"
+      report.update(is_finished: false)
+    end
+
+    redirect_to admin_root_path
+  end
+
   def destroy
   end
 

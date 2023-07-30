@@ -1,6 +1,11 @@
 <div class="container mt-3">
   <div class="row">
     <h1>投稿履歴詳細</h1>
+    <% if @report.is_finished == false %>
+      未対応
+    <% else %>
+      この案件は対応済です。
+    <% end %>
   </div>
 
   <div class="row">

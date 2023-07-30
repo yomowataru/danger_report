@@ -90,6 +90,13 @@
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
             <% end %>
+            <td>
+              <% if reports.is_finished == false %>
+                未対応
+              <% else %>
+                この案件は対応済です。
+              <% end %>
+            </td>
           </tr>
         </tbody>
         <% end %>
