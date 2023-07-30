@@ -26,12 +26,12 @@ class Public::ReportsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private
 
   def report_params
-    params.require(:report).permit(:customer_id, :lat, :lng, :introduction, :image, tag_ids: [])
+    params.require(:report).permit(:admin_id, :customer_id, :lat, :lng, :introduction, :image, tag_ids: [])
   end
 end

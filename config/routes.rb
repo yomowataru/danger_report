@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :reports, only: [:show, :destroy]
+    resources :reports, only: [:show, :destroy, :update] do
+      resources :comments, only: [:create, :destroy]
+    end
     # get 'reports/show'
   end
 
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :reports, only: [:new, :create, :index, :show, :destroy] do
-      resources :comments, only: [:create]  #commentsコントローラへのルーティング
+      resources :comments, only: [:create, :destroy]  #commentsコントローラへのルーティング
     end
     # get 'reports/new'
     # get 'reports/index'

@@ -86,7 +86,7 @@
           <tr>
             <td><%= reports.id %></td>
             <td><%= l reports.created_at %></td>
-            <td><%= link_to reports.introduction, report_path(reports.id) %></td>
+            <td><%= link_to reports.introduction, admin_report_path(reports.id) %></td>
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
             <% end %>
