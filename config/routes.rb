@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :notifications, only: [:index]
+    resources :notifications, only: [:index, :destroy]
     # get 'notifications/index'
   end
 
