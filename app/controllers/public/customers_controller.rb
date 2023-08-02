@@ -19,6 +19,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
+    @reports = current_customer.reports.all
   end
 
   def check

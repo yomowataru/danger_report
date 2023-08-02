@@ -32,7 +32,7 @@
         <tr>
           <% @reports.each do |reports| %>
             <td><%= reports.id %></td>
-            <td><%= link_to reports.introduction, report_path(reports.id) %></td>
+            <td><%= link_to reports.introduction, admin_report_path(reports.id) %></td>
           <% end %>
         </tr>
         <tr>

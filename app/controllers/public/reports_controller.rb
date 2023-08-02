@@ -14,6 +14,7 @@ class Public::ReportsController < ApplicationController
   def index
     @tags = Tag.all
     @reports = params[:name].present? ? Tag.find(params[:name]).reports : Report.all
+    
     # @reports = Report.all
 
   end
