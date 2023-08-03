@@ -68,6 +68,7 @@
         <td><%= l comment.created_at %></td>
         <td><%= comment.comment %></td>
         <td><%= comment.customer.name %></td>
+        <td><%=link_to "削除", admin_report_comment_path(comment.report.id, comment.id), method: :delete %></td>
       </table>
     <% end %>
     </div>
