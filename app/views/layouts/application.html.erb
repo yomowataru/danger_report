@@ -8,7 +8,7 @@
 
     <script src="https://kit.fontawesome.com/1f27aa4067.js" crossorigin="anonymous"></script>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,7 +16,11 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid" >
-          <h1 class="border border-dark px-5"><%= link_to "LOGO", root_path, class: 'nav-link text-dark' %></h1>
+          <h1 class="px-3">
+            <%= link_to root_path, class: 'nav-link text-dark' do %>
+              <%= image_tag 'logo.png', size: '250x50' %>
+            <% end %>
+          </h1>
           <% if customer_signed_in? %>
           <div class="ml-4">
             <h6>ようこそ、<%= current_customer.name %>さん！</h6>
@@ -71,14 +75,14 @@
                 <%= link_to "ログイン", new_customer_session_path, class: "fas fa-sign-in-alt nav-link" %>
               </li>
               <li class="nav-item border m-3 rounded ">
-                <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: "fas fa-sign-in-alt nav-link text-success" %>
+                <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: "fas fa-sign-in-alt nav-link" %>
               </li>
             <% end %>
             </ul>
-            <div class="ml-auto">
-              <%= text_field_tag :search %>
-              <%= submit_tag 'Search', :name => nil %>
-            </div>
+            <!--<div class="ml-auto">-->
+              <!--< %= text_field_tag :search %>-->
+              <!--< %= submit_tag 'Search', :name => nil %>-->
+            <!--</div>-->
           </div>
         </div>
       </nav>
