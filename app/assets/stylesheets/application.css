@@ -22,3 +22,7 @@
   color: white;
   background-position: center;
 }
+
+.check_box {
+  display: flex;
+}
