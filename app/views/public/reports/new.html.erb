@@ -113,9 +113,9 @@
       <div class="check_box">
         <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
           <div class="form-check px-0">
-         　 <%= tag.label do %>
-          　  <%= tag.check_box %>
-          　  <%= tag.text %>
+         　  <%= tag.label do %>
+          　   <%= tag.check_box %>
+          　   <%= tag.text %>
           　<% end %>
           </div>
         <% end %>

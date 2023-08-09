@@ -17,9 +17,9 @@ class Report < ApplicationRecord
   has_many :tags, through: :report_tags, dependent: :destroy
   belongs_to :customer
   has_many :notifications, dependent: :destroy
-  
+
   def create_notification_comment(current_customer, comment_id)
-    temp_ids = Comment.where(report_id: id).select(:customer_id).where.not("customer_id = ? or customer_id = ?", current_customer.id, customer_id).distinct 
+    temp_ids = Comment.where(report_id: id).select(:customer_id).where.not("customer_id = ? or customer_id = ?", current_customer.id, customer_id).distinct
     temp_ids.each do |temp_id|
       save_notification_comment!(current_customer, comment_id, temp_id['customer_id'])
     end
@@ -33,10 +33,10 @@ class Report < ApplicationRecord
       visited_id: visited_id
     )
     if notification.visiter_id == notification.visited_id
-      notification.checked = true
+      notification.check = true
     end
     notification.save if notification.valid?
   end
 
-  
+
 end

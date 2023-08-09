@@ -1,19 +1,23 @@
 <div class="container mt-3">
   <div class="row">
-    <h1>投稿履歴詳細</h1>
-    <% if @report.is_finished == false %>
-      未対応
-    <% else %>
-      この案件は対応済です。
-    <% end %>
+    <div class="col-lg-6">
+      <h3>
+        投稿詳細
+        <% if @report.is_finished == false %>
+          <span class="text-danger">（未対応）</span>
+        <% else %>
+          <span class="text-success">（この案件は対応済です）</span>
+        <% end %>
+      </h3>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-5 text-left m-3">
-      <%= image_tag @report.get_image, size: "300x300" %>
+    <div class="col-lg-5 text-left mt-3 mx-auto">
+      <%= image_tag @report.get_image, size: "400x300" %>
     </div>
 
-    <div class="col-lg-5 text-left m-3">
+    <div class="col-lg-5 text-left mt-3 mx-auto">
       <div id='map'></div>
 
       <style>
@@ -47,36 +51,77 @@
 
   </div>
 
-  <div class="row">
-    <% @report.tags.each do |tag| %>
-      <%= tag.name %>
-    <% end %>
-  </div>
 
   <div class="row">
-    <%= l @report.created_at %>
-    <%= @report.introduction %>
-  </div>
-
-  <div>
-    <div class="row">コメントする</div>
-    <%= form_with(model:[@report, @comment], method: :post) do |f| %>
-      <%= f.text_area :comment %>
-      <%= f.hidden_field :report_id, value: @report.id %>
-      <%= f.submit 'コメントする' %>
-    <% end %>
-  </div>
-
-  <div>
-    <div class="row">コメント一覧</div>
-    <div class="row">
-    <% @comments.each do |comment| %>
-      <table class="table table-borderless">
-        <td><%= l comment.created_at %></td>
-        <td><%= comment.comment %></td>
-        <td><%= comment.customer.name %></td>
+    <div class="col-lg-10 mx-auto">
+      <table class="table my-5">
+        <thead>
+          <tr>
+            <th>投稿日時</th>
+            <th>内容</th>
+            <th>タグ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= l @report.created_at %></td>
+            <td><%= @report.introduction %></td>
+            <td>
+              <% @report.tags.each do |tag| %>
+                <%= tag.name %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
       </table>
-    <% end %>
     </div>
   </div>
+
+  <div>
+    <div class="row">
+      <div class="col-lg-10">
+        <h5>コメントする</h5>
+      </div>
+    </div>
+    <%= form_with(model:[@report, @comment], method: :post) do |f| %>
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <%= f.text_area :comment, class: 'form-control', style: "width:40%", rows: "3" %>
+        <%= f.hidden_field :report_id, value: @report.id %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-10 mx-auto">
+        <%= f.submit 'コメントする' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div>
+    <div class="row mt-5">
+      <div class="col-lg-10">
+        <h5>コメント一覧</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <table class="table table-borderless">
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <% @comments.each do |comment| %>
+          <tbody>
+            <td><%= l comment.created_at %></td>
+            <td><%= comment.comment %></td>
+            <td><%= comment.customer.name %></td>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+
 </div>
