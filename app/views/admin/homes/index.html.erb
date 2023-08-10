@@ -1,27 +1,33 @@
 <div class="container">
-    <div class="row">
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th>投稿者</th>
-            <th>投稿日時</th>
-            <th>内容</th>
-            <th>タグ</th>
-          </tr>
-        </thead>
-        <% @finished.each do |finished| %>
-        <tbody>
-          <tr>
-            <td><%= finished.customer.name %></td>
-            <td><%= l finished.created_at %></td>
-            <td><%= link_to finished.introduction, admin_report_path(finished.id) %></td>
-            <% finished.tags.each do |tag| %>
-              <td><%= tag.name %></td>
-            <% end %>
-            <td>未対応</td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+  <div class="row mt-5">
+    <div class="col">
+      <h4>未対応一覧</h4>
     </div>
+  </div>
+
+  <div class="row mt-3">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>投稿者</th>
+          <th>投稿日時</th>
+          <th>内容</th>
+          <th>タグ</th>
+        </tr>
+      </thead>
+      <% @finished.each do |finished| %>
+      <tbody>
+        <tr>
+          <td><%= finished.customer.name %></td>
+          <td><%= l finished.created_at %></td>
+          <td><%= link_to finished.introduction, admin_report_path(finished.id) %></td>
+          <% finished.tags.each do |tag| %>
+            <td><%= tag.name %></td>
+          <% end %>
+          <td class="text-danger">未対応</td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>

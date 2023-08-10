@@ -19,7 +19,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @reports = current_customer.reports.all
+    @reports = current_customer.reports.all.order(created_at: :desc)
   end
 
   def check

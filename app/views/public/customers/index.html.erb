@@ -1,18 +1,24 @@
 <div class="container">
+
+  <div class="row mt-5">
+    <div class="col">
+      <h4>投稿履歴一覧</h4>
+    </div>
+  </div>
+
   <div class="row">
-    <table class="table table-borderless">
+    <table class="table table-hover">
       <thead>
         <tr>
-          <th>投稿ID</th>
           <th>投稿日時</th>
           <th>内容</th>
           <th>タグ</th>
+          <th>対応状況</th>
         </tr>
       </thead>
       <% @reports.each do |reports| %>
       <tbody>
         <tr>
-          <td><%= reports.id %></td>
           <td><%= l reports.created_at %></td>
           <td><%= link_to reports.introduction, admin_report_path(reports.id) %></td>
           <% reports.tags.each do |tag| %>
@@ -20,9 +26,9 @@
           <% end %>
           <td>
             <% if reports.is_finished == false %>
-              未対応
+              <h6 class="text-danger">未対応</h6>
             <% else %>
-              この案件は対応済です。
+              <h6 class="text-success">この案件は対応済です</h6>
             <% end %>
           </td>
         </tr>
