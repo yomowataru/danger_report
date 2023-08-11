@@ -20,6 +20,13 @@ class Admin::ReportsController < ApplicationController
     redirect_to admin_root_path
   end
 
+  def destroy
+    report = Report.find(params[:id])  # データ（レコード）を1件取得
+    report.destroy  # データ（レコード）を削除
+    redirect_to admin_root_path
+
+  end
+
 
 
   def report_params
