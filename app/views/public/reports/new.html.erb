@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col">
       <h3>新規投稿</h3>
+      <% if @report.errors.any? %>
+        <%= @report.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @report.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 
@@ -98,11 +106,11 @@
         </tr>
         <tr>
           <th><%= f.label :lat,"緯度" %></th>
-          <td><%= f.text_field :lat,:value =>"緯度", id: :lat %></td>
+          <td><%= f.text_field :lat,:value =>"", id: :lat %></td>
         </tr>
         <tr>
           <th><%= f.label :lng,"経度" %></th>
-          <td><%= f.text_field :lng,:value =>"経度", id: :lng %></td>
+          <td><%= f.text_field :lng,:value =>"", id: :lng %></td>
         </tr>
       </table>
     </div>

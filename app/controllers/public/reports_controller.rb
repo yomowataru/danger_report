@@ -7,8 +7,11 @@ class Public::ReportsController < ApplicationController
     @report = Report.new(report_params)
     # カスタマーIDを保存する場合、↓の記述がないとエラー(保存されない)！！
     @report.customer_id = current_customer.id
-    @report.save
-    redirect_to  report_path(@report.id)
+    if @report.save
+      redirect_to  report_path(@report.id)
+    else
+      render :new
+    end
   end
 
   def index

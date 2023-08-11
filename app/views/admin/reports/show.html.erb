@@ -11,7 +11,7 @@
       </h3>
     </div>
     <div class="col-lg-6">
-      <p><%= link_to "管理者権限で削除する", admin_report_path(@report.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+      <h5><%= link_to "管理者権限でこの投稿を削除する", admin_report_path(@report.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></h5>
 
     </div>
   </div>
