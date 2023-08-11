@@ -87,7 +87,7 @@
           <tr>
             <td><%= reports.customer.name %></td>
             <td><%= l reports.created_at %></td>
-            <td><%= link_to reports.introduction, report_path(reports.id) %></td>
+            <td><%= link_to reports.introduction, report_path(reports.id), target: :_blank, rel: "noopener noreferrer" %></td>
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
             <% end %>
