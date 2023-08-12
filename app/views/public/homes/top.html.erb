@@ -6,29 +6,29 @@
       </h2>
     </div>
   </div>
-  <div class="row mt-5 p-2">
+  <div class="row mt-5 p-3">
     <div class="col">
-      <h4 class="text-center" style="line-height:3rem">
+      <h3 class="text-center" style="line-height:3rem">
         道路や水路などの異常を通報できるサイトです。<br>
         散歩中、運転中に「あっ！」と思うことがあれば、些細なことでも通報できます。<br>
         みなさんで安心・安全な街を作っていきましょう！！
-      </h4>
+      </h3>
     </div>
   </div>
   <div class="row mt-5">
     <% if customer_signed_in? %>
     <div class="col">
-      <p class="text-center"><%= link_to "投稿する", new_report_path, class: "btn btn-danger" %></p>
-      <p class="text-center"><%= link_to "投稿一覧を見る", reports_path, class: "btn btn-warning" %></p>
+      <p class="text-center p-2"><%= link_to "投稿する", new_report_path, class: "btn btn-danger" %></p>
+      <p class="text-center p-2"><%= link_to "投稿一覧を見る", reports_path, class: "btn btn-warning" %></p>
     </div>
     <% else %>
     <div class="col">
-      <p class="text-center">
+      <p class="text-center p-2">
         <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success" %>
         <!--<span class="small">会員登録すると、自身の投稿履歴を見ることができます</span>-->
       </p>
-      <p class="text-center"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-primary" %></p>
-      <p class="text-center"><%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: "btn btn-info" %></p>
+      <p class="text-center p-2"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-primary" %></p>
+      <p class="text-center p-2"><%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: "btn btn-info" %></p>
     </div>
     <% end %>
   </div>
