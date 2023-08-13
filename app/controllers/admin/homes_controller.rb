@@ -1,7 +1,7 @@
 class Admin::HomesController < ApplicationController
   def top
     @tags = Tag.all
-    @reports = params[:name].present? ? Tag.find(params[:name]).reports : Report.all.order(created_at: :desc)
+    @reports = params[:name].present? ? Tag.find(params[:name]).reports.order(created_at: :desc) : Report.all.order(created_at: :desc)
 
   end
 
