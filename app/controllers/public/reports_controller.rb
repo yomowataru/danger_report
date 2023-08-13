@@ -19,8 +19,9 @@ class Public::ReportsController < ApplicationController
   def index
     @tags = Tag.all
     @reports = params[:name].present? ? Tag.find(params[:name]).reports : Report.all.order(created_at: :desc)
+    # ↓共通テンプレート用にパスを変数化
+    @link = report_path(@reports.ids)
 
-    # @reports = Report.all
 
   end
 
