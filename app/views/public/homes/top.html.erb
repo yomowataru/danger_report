@@ -18,8 +18,8 @@
   <div class="row mt-5">
     <% if customer_signed_in? %>
     <div class="col">
-      <p class="text-center p-2"><%= link_to "投稿する", new_report_path, class: "btn btn-danger" %></p>
-      <p class="text-center p-2"><%= link_to "投稿一覧を見る", reports_path, class: "btn btn-warning" %></p>
+      <p class="text-center p-2"><%= link_to "投稿する", new_report_path, data: {"turbolinks" => false}, class: "btn btn-danger" %></p>
+      <p class="text-center p-2"><%= link_to "投稿一覧を見る", reports_path, data: {"turbolinks" => false}, class: "btn btn-warning" %></p>
     </div>
     <% else %>
     <div class="col">

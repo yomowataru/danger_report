@@ -22,7 +22,7 @@
           <tr>
             <th>投稿者</th>
             <th>投稿日時</th>
-            <th>内容</th>
+            <th>内容説明</th>
             <th>タグ</th>
             <th>対応状況</th>
           </tr>
@@ -32,7 +32,7 @@
           <tr>
             <td><%= reports.customer.name %></td>
             <td><%= l reports.created_at %></td>
-            <td><%= link_to reports.introduction, report_path(reports.id), target: :_blank, rel: "noopener noreferrer" %></td>
+            <td><%= link_to reports.introduction, report_path(reports.id), rel: "noopener noreferrer" %></td>
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
             <% end %>

@@ -1,6 +1,8 @@
 <div class="container mt-3">
   <div class="row">
-    <h1>タグ編集</h1>
+    <div class="col">
+      <h4>タグ編集</h4>
+    </div>
   </div>
 
   <%= form_with model: @tag, url: admin_tag_path(@tag.id), method: :patch do |f| %>

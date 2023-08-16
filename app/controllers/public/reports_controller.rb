@@ -32,9 +32,7 @@ class Public::ReportsController < ApplicationController
                 # currentと書かないと保存できない
   end
 
-  def destroy
 
-  end
 
   private
 

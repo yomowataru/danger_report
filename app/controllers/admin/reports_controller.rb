@@ -2,7 +2,6 @@ class Admin::ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @comments = @report.comments
-    # @comment = Comment.new
   end
 
   def update
@@ -11,20 +10,19 @@ class Admin::ReportsController < ApplicationController
 
     if params[:report][:status] == "1"
       report.update(is_finished: true)
-      flash[:notice] = "対応済みです"
 
     elsif params[:report][:status] == "0"
       report.update(is_finished: false)
     end
-
-    redirect_to admin_root_path
+    flash[:notice] = "対応ステータスを更新しました。"
+    redirect_to request.referer
   end
 
   def destroy
     report = Report.find(params[:id])  # データ（レコード）を1件取得
     report.destroy  # データ（レコード）を削除
+    flash[:notice] = "投稿を削除しました。"
     redirect_to admin_root_path
-
   end
 
 

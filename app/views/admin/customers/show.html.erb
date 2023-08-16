@@ -34,7 +34,7 @@
         <tr>
           <th></th>
           <td><%= l reports.created_at %></td>
-          <td><%= link_to reports.introduction, admin_report_path(reports.id), target: :_blank, rel: "noopener noreferrer" %></td>
+          <td><%= link_to reports.introduction, admin_report_path(reports.id), rel: "noopener noreferrer" %></td>
         </tr>
         <% end %>
         <tr>
