@@ -20,7 +20,7 @@
         <tr>
           <td><%= finished.customer.name %></td>
           <td><%= l finished.created_at %></td>
-          <td><%= link_to finished.introduction, admin_report_path(finished.id) %></td>
+          <td><%= link_to finished.introduction, admin_report_path(finished.id), data: {"turbolinks" => false} %></td>
           <% finished.tags.each do |tag| %>
             <td><%= tag.name %></td>
           <% end %>

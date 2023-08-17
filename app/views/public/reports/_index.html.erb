@@ -43,7 +43,11 @@
     //マーカーをクリックしたとき、詳細情報を表示
               let infowindow = new google.maps.InfoWindow({
                 position: markerLatLng,
-                content: "<a href='<%= link %>'><%= reports.introduction %></a>"
+                <% if admin_signed_in? %>
+                  content: "<a href='<%= admin_report_path(reports.id) %>' target='_blank'><%= reports.introduction %></a>"
+                <% else %>
+                  content: "<a href='<%= report_path(reports.id) %>' target='_blank'><%= reports.introduction %></a>"
+                <% end %>
               }); //ここで詳細ページへのリンクを表示させる
               marker.addListener('click', function() {
                 infowindow.open(map, marker);

@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-5">
 
   <!--共通テンプレート-->
-  <%= render 'index', reports: @reports, link: @link %>
+  <%= render 'index', reports: @reports %>
   <!--ここまで-->
 
   <%= form_tag reports_path, method: :get, class: 'boards__searchForm' do %>
@@ -32,7 +32,7 @@
           <tr>
             <td><%= reports.customer.name %></td>
             <td><%= l reports.created_at %></td>
-            <td><%= link_to reports.introduction, report_path(reports.id), rel: "noopener noreferrer" %></td>
+            <td><%= link_to reports.introduction, report_path(reports.id), data: {"turbolinks" => false}, rel: "noopener noreferrer" %></td>
             <% reports.tags.each do |tag| %>
               <td><%= tag.name %></td>
             <% end %>
