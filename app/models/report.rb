@@ -8,6 +8,7 @@ class Report < ApplicationRecord
   validates :lng, presence: true
   validates :introduction, presence: true
   validates :image, presence: true
+  validates :tag_ids, presence: true
 
   def get_image
     unless image.attached?

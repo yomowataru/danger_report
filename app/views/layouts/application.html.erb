@@ -17,9 +17,15 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid" >
+        <% if admin_signed_in? %>
+          <h1 class="logo px-3">
+            <%= link_to "danger report", admin_root_path, class: 'nav-link text-dark' %>
+          </h1>
+        <% else %>
           <h1 class="logo px-3">
             <%= link_to "danger report", root_path, class: 'nav-link text-dark' %>
           </h1>
+        <% end %>
           <% if customer_signed_in? %>
           <div class="ml-4">
             <h6>ようこそ、<%= current_customer.name %>さん！</h6>
