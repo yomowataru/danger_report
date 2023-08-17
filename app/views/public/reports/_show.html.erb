@@ -55,6 +55,7 @@
       <table class="table my-5">
         <thead>
           <tr>
+            <th>投稿者</th>
             <th>投稿日時</th>
             <th>内容説明</th>
             <th>タグ</th>
@@ -62,6 +63,7 @@
         </thead>
         <tbody>
           <tr>
+            <td><%= report.customer.name %></td>
             <td><%= l report.created_at %></td>
             <td><%= report.introduction %></td>
             <td>
