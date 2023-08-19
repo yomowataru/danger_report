@@ -22,6 +22,13 @@ class Admin::TagsController < ApplicationController
     redirect_to  new_admin_tag_path
   end
 
+  def destroy
+    tag = Tag.find(params[:id])  # データ（レコード）を1件取得
+    tag.destroy  # データ（レコード）を削除
+    flash[:notice] = "タグを削除しました。"
+    redirect_to new_admin_tag_path
+  end
+
 
   def tag_params
     params.require(:tag).permit(:name)
