@@ -2,7 +2,7 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -39,3 +39,12 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              blank: "メールアドレスが空白です"
+            password:
+              blank: "パスワードが空白です"
