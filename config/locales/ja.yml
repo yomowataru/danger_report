@@ -48,3 +48,16 @@ ja:
               blank: "メールアドレスが空白です"
             password:
               blank: "パスワードが空白です"
+        report:
+          attributes:
+            lat:
+              blank: "緯度が空白です"
+            lng:
+              blank: "経度が空白です"
+            introduction:
+              blank: "内容説明が空白です"
+            image:
+              blank: "写真が選択されていません"
+            tag_ids:
+              blank: "タグが空白です"
+
