@@ -47,9 +47,9 @@
           <th class="text-center"><label for="status">対応ステータス</label></th>
           <td class="text-center">
             <%= f.radio_button :status, 0, checked: "checked" %>
-            <%= f.label :status, "未対応" %>
+            <%= f.label :status, "未対応", value: 0 %>
             <%= f.radio_button :status, 1 %>
-            <%= f.label :status, "対応済" %>
+            <%= f.label :status, "対応済", value: 1 %>
           </td>
         </tr>
         <tr>
