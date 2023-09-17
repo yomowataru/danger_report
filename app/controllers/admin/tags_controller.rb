@@ -9,7 +9,7 @@ class Admin::TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     @tag.save
-    redirect_to  new_admin_tag_path
+    redirect_to new_admin_tag_path
   end
 
   def edit
@@ -29,6 +29,7 @@ class Admin::TagsController < ApplicationController
     redirect_to new_admin_tag_path
   end
 
+  private
 
   def tag_params
     params.require(:tag).permit(:name)
