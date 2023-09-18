@@ -44,9 +44,9 @@
               let infowindow = new google.maps.InfoWindow({
                 position: markerLatLng,
                 <% if admin_signed_in? %>
-                  content: "<a href='<%= admin_report_path(reports.id) %>' target='_blank'><%= reports.introduction %></a>"
+                  content: "<a href='<%= admin_report_path(reports.id) %>' target='_blank'><%= escape_javascript(reports.introduction) %></a>"
                 <% else %>
-                  content: "<a href='<%= report_path(reports.id) %>' target='_blank'><%= reports.introduction %></a>"
+                  content: "<a href='<%= report_path(reports.id) %>' target='_blank'><%= escape_javascript(reports.introduction) %></a>"
                 <% end %>
               }); //ここで詳細ページへのリンクを表示させる
               marker.addListener('click', function() {
