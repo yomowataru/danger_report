@@ -59,6 +59,8 @@
             <th>投稿日時</th>
             <th>内容説明</th>
             <th>タグ</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +73,14 @@
                 <%= tag.name %>
               <% end %>
             </td>
+            <% if @report.customer == current_customer %>
+            <td>
+              <%= link_to "編集する", edit_report_path(@report), class: "text-success" %>
+            </td>
+            <td>
+              <%= link_to "削除する", report_path(@report), class: "text-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            </td>
+          <% end %>
           </tr>
         </tbody>
       </table>

@@ -19,9 +19,6 @@ class Public::ReportsController < ApplicationController
   def index
     @tags = Tag.all
     @reports = params[:name].present? ? Tag.find(params[:name]).reports : Report.all.order(created_at: :desc)
-    
-
-
   end
 
   def show
@@ -30,6 +27,31 @@ class Public::ReportsController < ApplicationController
     @comment = current_customer.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
                 # currentと書かないと保存できない
   end
+
+  def edit
+    @report = Report.find(params[:id])
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    @report.customer_id = current_customer.id
+    if @report.update(report_params)
+      flash[:notice] = "編集に成功しました。"
+      redirect_to  report_path(@report.id)
+    else
+      flash.now[:alert] = "編集に失敗しました。"
+      render :edit
+    end
+  end
+
+  def destroy
+    report = Report.find(params[:id])  # データ（レコード）を1件取得
+    report.destroy  # データ（レコード）を削除
+    flash[:notice] = "投稿を削除しました。"
+    redirect_to reports_path
+  end
+
+
 
 
 
