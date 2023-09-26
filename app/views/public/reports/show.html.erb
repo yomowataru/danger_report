@@ -37,12 +37,16 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
           </thead>
           <% @comments.each do |comment| %>
           <tbody>
             <td><%= l comment.created_at %></td>
             <td><%= comment.comment %></td>
             <td><%= comment.customer.name %></td>
+            <% if comment.customer == current_customer %>
+              <td><%=link_to "削除", report_comment_path(comment.report.id, comment.id), method: :delete %></td>
+            <% end %>
           </tbody>
           <% end %>
         </table>

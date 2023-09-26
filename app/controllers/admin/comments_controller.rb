@@ -5,6 +5,6 @@ class Admin::CommentsController < ApplicationController
 
     flash[:notice] = "コメントを削除しました。"
     redirect_to request.referer
-
   end
+  
 end
