@@ -27,7 +27,7 @@ class Report < ApplicationRecord
   def create_notification_comment(current_customer, comment_id)
     temp_ids = Comment.where(report_id: id).select(:customer_id).where.not("customer_id = ? or customer_id = ?", current_customer.id, customer_id).distinct
     temp_ids.each do |temp_id|
-      save_notification_comment!(current_customer, comment_id, temp_id['customer_id'])
+      save_notification_comment(current_customer, comment_id, temp_id['customer_id'])#save_notification_comment!ビックリマークを入れるとカレントユーザーがコメントできない
     end
     save_notification_comment(current_customer, comment_id, customer_id)
   end
