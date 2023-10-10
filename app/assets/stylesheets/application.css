@@ -1,6 +1,6 @@
 /*-----トップページ背景----------------------------------------------------------------------------*/
 .background {
-  height: 700px;
+  height: 800px;
   background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('top-page.png');
   background-size: cover;
   color: white;
