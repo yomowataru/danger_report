@@ -16,7 +16,7 @@
 
   <body>
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-xl navbar-light">
         <div class="container-fluid" >
         <% if admin_signed_in? %>
           <h1 class="logo px-3">
@@ -28,7 +28,7 @@
           </h1>
         <% end %>
           <% if customer_signed_in? %>
-          <div class="ml-4">
+          <div class="ml-3">
             <h6>ようこそ、<%= current_customer.name %>さん！</h6>
           </div>
           <% end %>
@@ -39,47 +39,47 @@
           <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "投稿一覧", admin_root_path, data: {"turbolinks" => false}, class: "fas fa-list-alt nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "会員一覧", admin_customers_path, class: "fas fa-users nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "タグ一覧", new_admin_tag_path, class: "fas fa-tags nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
               </li>
             <% elsif customer_signed_in? %>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item m-3 ">
                 <%= link_to "マイページ", customers_my_page_path, class: "fas fa-house-user nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "新規投稿", new_report_path, data: {"turbolinks" => false}, class: "fas fa-paper-plane nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "投稿一覧", reports_path, data: {"turbolinks" => false}, class: "fas fa-list-alt nav-link" %>
               </li>
               <% if unchecked_notifications.any? %>
-                <li class="nav-item border m-3 rounded"><%= link_to "通知",notifications_path, class: "fas fa-bell nav-link",style: "color:tomato;" %></li>
+                <li class="nav-item  m-3"><%= link_to "通知",notifications_path, class: "fas fa-bell nav-link",style: "color:tomato;" %></li>
               <% else %>
-                <li class="nav-item border m-3 rounded"><%= link_to "通知",notifications_path, class: "fas fa-check nav-link"%></li>
+                <li class="nav-item  m-3"><%= link_to "通知",notifications_path, class: "fas fa-check nav-link"%></li>
               <% end %>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
               </li>
             <% else %>
-              <li class="nav-item border m-3 rounded">
+              <li class="nav-item  m-3">
                 <%= link_to "新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link' %>
               </li>
-              <li class="nav-item border m-3 rounded ">
+              <li class="nav-item  m-3">
                 <%= link_to "ログイン", new_customer_session_path, class: "fas fa-sign-in-alt nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded ">
+              <li class="nav-item  m-3">
                 <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post, class: "fas fa-sign-in-alt nav-link" %>
               </li>
-              <li class="nav-item border m-3 rounded ">
+              <li class="nav-item  m-3">
                 <%= link_to "管理者ログイン", new_admin_session_path, class: "fas fa-sign-in-alt nav-link" %>
               </li>
             <% end %>
